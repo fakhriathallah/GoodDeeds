@@ -1,0 +1,615 @@
+@font-face {
+    font-family: 'poiret';
+    src: url('/assets/PoiretOne-Regular.ttf') format('truetype');
+}
+
+/* For header and footer*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    background-color: #35374B;
+}
+header {
+    height: 5vw;
+    font-family: 'poiret';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #50727B;
+}
+.logo img {
+    height: 50px;
+}
+nav {
+    display: flex;
+    gap: 25px;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+    font-size: 1.5vw;
+}
+nav a:hover {
+    color: #64C3BF;
+}
+
+footer {
+    font-family: 'poiret';
+    margin-top: auto; /* Pushes the footer to the bottom */
+    display: flex; /* Enables Flexbox */
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+    height: 60px; /* Fixed height for the footer */
+    text-align: center;
+    padding: 0 20px;
+    background-color: #50727B; /* Footer background */
+    color: white; /* Footer text color */
+    font-size: 1vw;
+}
+/* end */
+
+/*for homepage*/
+.content {
+    display: flex;
+    width: 100%; /* Ensures full width */
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Takes all available space between header and footer */
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100%; /* Full height of the available space */
+}
+
+.left, .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left button{
+    border-radius: 20px;
+    background-color:#35374B;
+    width: 80%;
+    height: 105%;
+    border-width: 5px;
+    border-color: #50727B;
+    border-style: dashed;
+}
+
+.left h1{
+    font-family: 'poiret', sans-serif;
+    font-size: 100px;
+}
+
+.left button:hover{
+    background-color:#ACA7A7;
+}
+
+.right-content {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 105%;
+    border-width: 5px;
+    border-color: #50727B;
+    border-style: dashed;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.feed {
+    display: flex;
+    flex-direction: row;  /* Horizontal layout (left to right) */
+    justify-content: space-between;  /* Distributes space between the text and button */
+    width: 90%;
+    min-width: 30vw;
+    background-color: azure;
+    border-color: #8d96fa;
+    border-style: solid;
+    border-radius: 20px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+/* .feed A {
+    width: 30%;
+    height: 30%;
+    align-self: center;
+    margin-right: 10vh;
+    text-align: center;
+} */
+
+.feed h1{
+    margin-left: 5vh;
+    font-family: 'Poppins-Medium', sans-serif;
+    color: #35374B;
+}
+
+.feed h2{
+    margin-left: 5vh;
+    font-size: 20px;
+    font-family: 'Poppins-Medium', sans-serif;
+    color: #ACA7A7;
+}
+
+.details{
+    background-color: #50727B;
+    width: 7vw;
+    height: 7vh;
+    margin: auto 5rem;
+    border-radius: 10px;
+    display: flex;
+}
+
+.details a{
+    font-family: 'Inter-Bold', sans-serif;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: auto auto;
+    font-size: 28px;
+}
+
+
+/*end */
+
+/* Custom Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a,
+.pagination span {
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.pagination .disabled span {
+    color: rgb(82, 82, 82);
+    background-color: #ACA7A7;
+}
+
+.pagination .active span {
+    background-color: #50727B;
+    color: white;
+}
+
+.pagination a:hover {
+    background-color: #64C3BF;
+}
+/*end*/
+
+/*for signup*/
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('/assets/Fonts/Poppins-Medium.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('/assets/Fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('/assets/Fonts/Inter_24pt-Bold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.signup-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Full viewport height */
+    text-align: center; /* Center text inside elements */
+}
+
+#Create{
+    margin-bottom: 10px;
+}
+
+.inputFields input{
+    font-family: 'Poppins-Medium', sans-serif;
+    align-self: center;
+    height: 6svh;
+    justify-content: center;
+    width: 80%;
+    font-size: 20px;
+    padding-left: 15px;
+    color: #ACA7A7;
+    background-color: transparent;
+    border-radius: 5px;
+    border-color: #64C3BF;
+    border-width: 3px;
+    border-style: solid;
+    margin: 8px;
+}
+
+.inputFields input::placeholder{
+    color: #7077A1;
+}
+
+.signup-content h1{
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Inter-Bold', sans-serif;
+    font-size: 5rem;
+    color: #64C3BF;
+    margin: 3rem auto;
+}
+
+#text1{
+    font-family: 'Poppins-Regular', sans-serif;
+    align-self: center;
+    font-size: 15px;
+    margin-top: 15px;
+    font-weight: lighter;
+    margin-bottom: 8px;
+    color: white;
+}
+
+#text2{
+    font-family: 'Poppins-Regular', sans-serif;
+    align-self: center;
+    font-size: 15px;
+    margin-top: 0px;
+    font-weight: lighter;
+    margin-bottom: 5px;
+    color:white;
+}
+
+#alink{
+    color: #64C3BF;
+    font-weight: lighter;
+}
+
+.TermsText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inputFields{
+    width: 50vw;
+    margin: 0 auto;
+    padding-bottom: 2em;
+}
+
+#submit {
+    font-family: 'Poppins-Medium', sans-serif;
+    align-self: center;
+    height: 6svh;
+    width: 35%;
+    font-size: 20px;
+    color: #FFFF;
+    background-color: #64C3BF;
+    border-radius: 5px;
+    border-color: #64C3BF;
+    border-width: 3px;
+    border-style: solid;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#submit:hover{
+    border-width: 2px;
+    border-color: white;
+}
+
+/*end*/
+
+/*for signin*/
+.signin-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.signin-input #welcome{
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Inter-Bold', sans-serif;
+    font-size: 5rem;
+    color: #64C3BF;
+    margin: 0;
+}
+
+.signin-input #feelGood{
+    text-align: center;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-weight: lighter;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    color:white;
+}
+
+.signin-input #login{
+    font-family: 'Poppins-Medium', sans-serif;
+    align-self: center;
+    margin-bottom: 25px;
+    height: 6svh;
+    width: 25%;
+    font-size: 25px;
+    color: #64C3BF;
+    background-color: transparent;
+    border-radius: 5px;
+    border-color: #64C3BF;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.signin-input #login:hover{
+    border-color: #FFFF;
+    color: #FFFF;
+}
+
+.signin-input #signUp{
+    font-family: 'Poppins-Medium', sans-serif;
+    align-self: center;
+    height: 6svh;
+    width: 25%;
+    font-size: 25px;
+    color: #FFFF;
+    background-color: #64C3BF;
+    border-radius: 5px;
+    border-color: #64C3BF;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.signin-input #signUp:hover{
+    border-color: #FFFF;
+}
+
+
+.signin-input #emailInput, #passInput{
+    font-family: 'Poppins-Medium', sans-serif;
+    align-self: center;
+    height: 6svh;
+    width: 80%;
+    font-size: 20px;
+    padding-left: 15px;
+    color: #ACA7A7;
+    background-color: transparent;
+    border-radius: 5px;
+    border-color: #64C3BF;
+    border-width: 3px;
+    border-style: solid;
+    margin-bottom: 15px;
+}
+
+
+.signin-input #emailInput::placeholder, #passInput::placeholder{
+    font-family: 'Poppins-Medium', sans-serif;
+    color: #7077A1;
+    background-color: transparent;
+}
+
+.signin-input #botBox{
+    margin-top: -10px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+}
+
+.signin-input #botBox #remember{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    accent-color: #64C3BF;
+}
+
+.signin-input #botBox #rememberText{
+    font-family: 'Poppins-Medium', sans-serif;
+    color: #64C3BF;
+    font-weight: lighter;
+
+}
+
+.signin-input #botBox #forgot{
+    font-family: 'Poppins-Medium', sans-serif;
+    margin-left: auto;
+    font-weight: lighter;
+    color: #64C3BF;
+}
+
+.signin-input #loginButton{
+    font-family: 'Poppins-Medium', sans-serif;
+    align-self: center;
+    margin-top: 15px;
+    height: 6svh;
+    width: 35%;
+    font-size: 20px;
+    color: #FFFF;
+    background-color: #64C3BF;
+    border-radius: 5px;
+    border-color: #64C3BF;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.signin-input #loginButton:hover{
+    border-color: white;
+}
+
+.signin-input #text1{
+    font-family: 'Poppins-Regular', sans-serif;
+    align-self: center;
+    font-size: 15px;
+    margin-top: 15px;
+    font-weight: lighter;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.signin-input #text2{
+    font-family: 'Poppins-Regular', sans-serif;
+    align-self: center;
+    font-size: 15px;
+    margin-top: 0px;
+    font-weight: lighter;
+    margin-bottom: 5px;
+    color:white;
+}
+
+.signin-input #alink{
+    color: #64C3BF;
+    font-weight: lighter;
+}
+/*end*/
+
+/*for myDeeds*/
+.my-deeds{
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.deeds h1{
+    color: #35374B;
+    font-size: 30px;
+    font-family: 'Poppins-Medium', sans-serif;
+}
+
+.title{
+    color: #64C3BF;
+    font-size: 40px;
+    font-family: 'Poppins-Medium', sans-serif;
+}
+
+
+.my-deeds button{
+    width: 45.5vw;
+    height: 8vh;
+    margin-bottom: 2vh;
+    border-radius: 20px;
+    font-size: large;
+    font-family: 'Inter-Bold', sans-serif;
+}
+
+.my-deeds button:hover{
+    background-color: #64C3BF;
+}
+/*end*/
+
+/* deeds detail */
+
+.deeds-detail{
+    background-color: #ACA7A7;
+    height: 50vh;
+    min-width: 30vw;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.deeds-detail h1{
+    color: #35374B;
+    font-family: 'Inter-Bold', sans-serif;
+    font-size: 35px;
+}
+
+.deeds-detail h2{
+    font-size: 28px;
+    color: #35374B;
+    font-family: 'Inter-Bold', sans-serif;
+}
+
+.deeds-detail p{
+    font-family: 'poiret', sans-serif;
+    color: white;
+    font-size: 20px;
+}
+
+#take-job-btn, #delete-job-btn{
+    font-family: 'Poppins-Medium', sans-serif;
+    align-items: center;
+    justify-content: center;
+    height: 4svh;
+    width: 35%;
+    font-size: 20px;
+    color: #FFFF;
+    background-color: #64C3BF;
+    border-radius: 5px;
+    border-color: #64C3BF;
+    border-width: 3px;
+    border-style: solid;
+    display: flex;
+    margin: auto;
+}
+
+#take-job-btn:hover, #delete-job-btn:hover{
+    border-color: white;
+}
+
+/*end*/
+
+/*Activity*/
+
+.status{
+    display: flex;
+    flex-direction: column;
+    margin-right: 3vw;
+}
+
+.status a{
+    font-family: 'Inter-Bold', sans-serif;
+    text-decoration: none;
+    color: #64C3BF;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.status button{
+    color: #FFFF;
+    background-color: #64C3BF;
+    border-radius: 5px;
+    border-color: #64C3BF;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.status button:hover{
+    border-color: #35374B;
+}
+
