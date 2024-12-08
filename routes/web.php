@@ -52,4 +52,6 @@ Route::post('/cancel-deed/{id}', [MsDeedsController::class, 'cancelDeed'])->name
 Route::post('/complete-deed/{id}', [MsDeedsController::class, 'completeDeed'])->name('deed.complete');
 Route::delete('/deeds/{deed}', [MsDeedsController::class, 'deleteDeed'])->name('deed.delete'); // owner
 
-
+//Route buat upload sana hapus foto
+Route::put('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.update.photo');
+Route::delete('/profile/photo', [ProfileController::class, 'deletePhoto'])->name('profile.delete.photo');
