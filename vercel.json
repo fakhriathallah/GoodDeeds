@@ -12,7 +12,7 @@
     "public": true,
     "outputDirectory": "public",
     "env": {
-        "APP_ENV": "production",
+        "APP_ENV": "local",
         "APP_DEBUG": "false",
         "APP_URL": "https://good-deeds-alpha.vercel.app",
         "APP_KEY": "base64:iQ5Q4eK9unt9ekqAH6hLOXUPDXzVRolhb1o/mLmgHzQ=",
