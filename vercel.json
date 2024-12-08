@@ -14,7 +14,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "https://yourproductionurl.com",
+        "APP_URL": "https://good-deeds-alpha.vercel.app",
         "APP_KEY": "base64:iQ5Q4eK9unt9ekqAH6hLOXUPDXzVRolhb1o/mLmgHzQ=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
