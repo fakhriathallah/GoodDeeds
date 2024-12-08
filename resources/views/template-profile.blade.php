@@ -31,8 +31,7 @@
         <!-- Navbar -->
         @include('layouts.navbars.nav')
         <div class="container-fluid py-4">
-            @yield('content')
-            @include('layouts.footers.footer')
+            @yield('content-profile')
         </div>
     </main>
     <!--   Core JS Files   -->
