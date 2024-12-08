@@ -112,11 +112,8 @@ class MsDeedsController extends Controller
         ]);
 
         // Retrieve the logged-in user's ID from session
-        $ownerUserId = session('userId'); // Assuming userId is stored in session during login
+        $ownerUserId = Auth::user()->id; // Assuming userId is stored in session during login
 
-        if (!$ownerUserId) {
-            return redirect()->route('signin.index')->with('error', 'You must be logged in to add a deed.');
-        }
 
         // Create a new deed entry in the database
         MsDeeds::create([

@@ -28,6 +28,8 @@ Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController:
 Route::prefix('owner')->group(function(){
     Route::get('/dashboard', [MsDeedsController::class, 'ownerDashboard'])->name('ownerDashboardShow');
 
+    Route::get('/adddeeds', [MsDeedsController::class,'addDeed'])->name('ownerAddDeeds'); // owner
+    Route::post('/adddeeds', [MsDeedsController::class, 'storeDeed'])->name('ownerStoreDeeds');
 });
 
 Route::prefix('taker')->group(function(){

@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.floating-icon {
+    position: fixed; /* Tetap di posisi kanan bawah bahkan saat menggulir halaman */
+    bottom: 20px; /* Berjarak 20px dari bagian bawah halaman */
+    right: 20px; /* Berjarak 20px dari sisi kanan halaman */
+    background-color: #007bff; /* Warna biru untuk ikon */
+    color: white; /* Warna teks putih */
+    width: 40px; /* Lebar ikon */
+    height: 40px; /* Tinggi ikon */
+    display: flex;
+    align-items: center; /* Vertikal tengah */
+    justify-content: center; /* Horizontal tengah */
+    border-radius: 50%; /* Membuatnya menjadi lingkaran */
+    font-size: 24px; /* Ukuran huruf */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan */
+    cursor: pointer; /* Tunjukkan pointer saat hover */
+    transition: background-color 0.3s ease; /* Animasi saat hover */
+}
+
+/* Efek hover */
+.floating-icon:hover {
+    background-color: #0056b3; /* Warna biru yang lebih gelap saat hover */
+}
