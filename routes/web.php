@@ -16,14 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MsDeedsController::class,'guestDashboard'])->name('home.index');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-
-Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController::class, 'generalUserDashboard'])->name('dashboard');
 
 Route::prefix('owner')->group(function(){
     Route::get('/dashboard', [MsDeedsController::class, 'ownerDashboard'])->name('ownerDashboardShow');
