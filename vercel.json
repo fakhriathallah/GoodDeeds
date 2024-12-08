@@ -8,11 +8,7 @@
         { "src": "/build/(.*)", "dest": "/public/build/" },
         { "src": "/(.*)", "dest": "/api/index.php" }
     ],
-    "buildCommand": {
-        "dockerfile": "Dockerfile",
-        "command": "vite build",
-        "outputDirectory": "public"
-    },
+    "buildCommand": "vite build",
     "public": true,
     "outputDirectory": "public",
     "env": {
