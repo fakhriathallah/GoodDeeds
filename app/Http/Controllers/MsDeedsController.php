@@ -273,4 +273,24 @@ class MsDeedsController extends Controller
             'message' => 'Job deleted successfully.',
         ]);
     }
+
+    public function updateDetail(MsDeeds $deed){
+        return view('UpdateDeeds', ['deed'=>$deed]);
+    }
+
+    public function updateDeed(Request $request, MsDeeds $deed){
+        $validated = $request->validate([
+            'title' => 'required|max:100',
+            'description' => 'required',
+            'prize' => 'required|numeric|min:0',
+        ]);
+        // $deed = MsDeeds::find($id);
+        $deed->title = $request->title;
+        $deed->description = $request->description;
+        $deed->prize = $request->prize;
+
+        $deed->save();
+
+        return back()->with('success',true);
+    }
 }

@@ -34,10 +34,11 @@
                         </p>
                 @endif
                 @elseif(Auth::user()->type == 1)
-                    <button type="submit" class="btn btn-primary">You Login As Owner</button>
+                    <button type="submit" class="btn btn-primary">Login As Owner</button>
                 @endif
             @else
                 @if ($deed->taker_user_id == 0)
+                    <a type="button" class="btn btn-primary" href="{{ route('deed.updateDetail', ['deed'=>$deed->id]) }}">UPDATE JOB</a>
                     <button id="delete-job-btn" onclick="deleteJob({{ $deed->id }})">
                         DELETE JOB
                     </button>

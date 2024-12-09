@@ -60,3 +60,6 @@ Route::delete('/deeds/{deed}', [MsDeedsController::class, 'deleteDeed'])->name('
 //Route buat upload sana hapus foto
 Route::put('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.update.photo');
 Route::delete('/profile/photo', [ProfileController::class, 'deletePhoto'])->name('profile.delete.photo');
+
+Route::get('/update-detail/{deed}',[MsDeedsController::class,'updateDetail'])->name('deed.updateDetail'); // owner
+Route::put('/update-deed/{deed}',[MsDeedsController::class,'updateDeed'])->name('deed.updateDeed'); // owner
