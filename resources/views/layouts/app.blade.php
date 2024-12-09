@@ -12,7 +12,8 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['public/assets/css/app.css', 'public/assets/js/app.js'])
+        {{-- @vite(['public/assets/css/app.css', 'public/assets/js/app.js']) --}}
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
