@@ -1,4 +1,4 @@
-<section class="flex flex-col items-center">
+<section class="">
     {{-- <header>
         <h2 class="text-lg font-medium text-gray-900 text-center">
             {{ __('Profile Photo') }}
@@ -6,11 +6,9 @@
     </header> --}}
 
     <div class="mt-4 flex flex-col items-center">
-        <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-gray-300 shadow-md bg-gray-100">
-            <img src="{{ auth()->user()->photo ? asset('storage/' . auth()->user()->photo) : asset('images/placeholder.svg') }}"
-                alt="Profile Photo"
-                class="w-full h-full object-cover">
-        </div>
+        <img src="{{ auth()->user()->photo ? asset('storage/' . auth()->user()->photo) : asset('images/placeholder.svg') }}"
+            alt="Profile Photo"
+            class="avatar avatar-xl position-relative rounded-full overflow-hidden shadow-md bg-gray-100">
 
         <button id="editPhotoButton" onclick="togglePhotoForm()" class="mt-3 text-blue-600 hover:text-blue-800 focus:outline-none transition duration-200">
             {{ __('Edit Photo') }}

@@ -50,7 +50,10 @@
                               @method('PUT')
                               <input type="hidden" name="deed_id" value="{{ $deed->id }}">
 
-                              <button type="submit" class="badge badge-sm bg-gradient-success">Done</button> 
+                              @if (Auth::user()->type == 2)
+                              <button type="submit" class="badge badge-sm bg-gradient-success">Done</button>  
+                              @endif
+                               
                             </form>
                         </td>    
                         </tr>

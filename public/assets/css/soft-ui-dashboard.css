@@ -55,6 +55,7 @@ body {
     font-size: 1rem;
     line-height: 1.5;
     margin: 0;
+    overflow-y: hidden;
 }
 hr {
     background-color: currentColor;
@@ -14789,8 +14790,8 @@ fieldset:disabled .btn {
     margin-top: -55px;
 }
 .avatar-xl {
-    height: 74px !important;
-    width: 74px !important;
+    height: 100px !important;
+    width: 100px !important;
 }
 .avatar-xl.avatar-raised {
     margin-top: -37px;
