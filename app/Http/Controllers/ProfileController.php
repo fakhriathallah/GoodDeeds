@@ -59,7 +59,6 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-
     public function updatePhoto(Request $request): RedirectResponse
     {
         $request->validate([
