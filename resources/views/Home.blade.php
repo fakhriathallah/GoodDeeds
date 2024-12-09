@@ -45,7 +45,7 @@
                             <span class="text-secondary text-xs font-weight-bold">{{$deed->owner->name}}</span>
                         </td>
                         <td class="align-middle">
-                            <a href="{{ route('deed.detail', ['deed'=>$deed->id]) }}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            <a href="{{ route('deed.detail', ['deed'=>$deed->id]) }}" class="font-weight-bold badge badge-sm bg-gradient-info text-xs" >
                             Detail
                             </a>
                         </td>    
@@ -59,6 +59,11 @@
             {{ $deeds->links() }}
           </div>
         </div>
+      </div>
+      <div class="fixed-plugin">
+        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2" href="{{route('ownerAddDeeds')}}">
+          <i class="fa fa-plus py-2"> </i>
+        </a> 
       </div>
 </main>
 @endsection
