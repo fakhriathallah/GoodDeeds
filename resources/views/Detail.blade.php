@@ -39,9 +39,12 @@
             @else
                 @if ($deed->taker_user_id == 0)
                     <a type="button" class="btn btn-primary" href="{{ route('deed.updateDetail', ['deed'=>$deed->id]) }}">UPDATE JOB</a>
-                    <button id="delete-job-btn" onclick="deleteJob({{ $deed->id }})">
-                        DELETE JOB
-                    </button>
+                    {{-- <a type="button" class="btn btn-primary" href="{{ route('deed.delete', ['deed'=>$deed->id]) }}">DELETE JOB</a> --}}
+                    <form action="{{ route('deed.delete', ['deed'=>$deed->id]) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="delete" class="btn btn-danger">
+                    </form>
                 @endif
             @endif
           </div>
@@ -85,29 +88,29 @@
         });
     }
 
-    function deleteJob(deedId) {
-        if (confirm('Are you sure you want to delete this job?')) {
-            fetch(`/deeds/${deedId}`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert(data.message);
-                    window.location.href = '{{ route('home.index') }}';
-                } else {
-                    alert(data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while deleting the job.');
-            });
-        }
-    }
+    // function deleteJob(deedId) {
+    //     if (confirm('Are you sure you want to delete this job?')) {
+    //         fetch(`/deeds/${deedId}`, {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
+    //             }
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             if (data.success) {
+    //                 alert(data.message);
+    //                 window.location.href = '{{ route('home.index') }}';
+    //             } else {
+    //                 alert(data.message);
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.error('Error:', error);
+    //             alert('An error occurred while deleting the job.');
+    //         });
+    //     }
+    // }
 </script>
 @endsection
