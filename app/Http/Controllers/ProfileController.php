@@ -68,19 +68,16 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        // if ($request->hasFile('photo')) {
-        //     if ($user->photo) {
-        //         Storage::delete($user->photo);
-        //     }
+        if ($request->hasFile('photo')) {
+            if ($user->photo) {
+                Storage::delete($user->photo);
+            }
 
-        //     $path = $request->file('photo')->store('photos', 'public');
-        //     $user->photo = $path;
-        //     $user->save();
-        // }
-
-        $path = $request->file('photo')->store('photos', 'public');
-        $user->photo = $path;
-        $user->save();
+            $path = $request->file('photo')->store('photos', 'public');
+            $user->photo = $path;
+            $user->save();
+        }
+        
         return Redirect::route('profile.edit')->with('status', 'photo-updated');
     }
 
