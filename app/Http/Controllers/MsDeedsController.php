@@ -12,7 +12,7 @@ class MsDeedsController extends Controller
     //
 
     public function guestDashboard(){
-        $deeds = Msdeeds::paginate(3);
+        $deeds = Msdeeds::paginate(5);
         $users = User::all();
 
         $datas = [
@@ -23,7 +23,7 @@ class MsDeedsController extends Controller
     }
 
     public function ownerDashboard(){
-        $deeds = Msdeeds::where('status', 'Requested')->paginate(3);
+        $deeds = Msdeeds::where('status', 'Requested')->paginate(5);
         $users = User::all();
 
         $datas = [
@@ -34,7 +34,7 @@ class MsDeedsController extends Controller
     }
 
     public function takerDashboard(){
-        $deeds = Msdeeds::where('status', 'Requested')->paginate(3);
+        $deeds = Msdeeds::where('status', 'Requested')->paginate(5);
         $users = User::all();
 
         $datas = [
@@ -43,6 +43,8 @@ class MsDeedsController extends Controller
         ];
         return view('Home', $datas);
     }
+
+
 
     public function TakerDeedDetail(MsDeeds $deed) {
 
@@ -60,7 +62,7 @@ class MsDeedsController extends Controller
         $userId = session('userId');  // Or use auth()->id() if you are using Laravel's authentication system
 
         // Get deeds associated with the logged-in user
-        $deeds = Msdeeds::where('owner_user_id', $userId)->paginate(3);
+        $deeds = Msdeeds::where('owner_user_id', $userId)->paginate(5);
 
         // Prepare the data to pass to the view
         $datas = [
@@ -71,12 +73,25 @@ class MsDeedsController extends Controller
         return view('Mydeeds', $datas);
     }
 
+    public function ownerDeeds()
+    {
+        $userId = Auth::user()->id;
+        
+        $deeds = Msdeeds::where('owner_user_id', $userId)->paginate(5);
+
+        $datas = [
+            'deeds' => $deeds
+        ];
+
+        return view('MyDeeds', $datas);
+    }
+
 
     public function takerOnProgressDeeds()
     {
         $userId = Auth::user()->id;
         
-        $deeds = Msdeeds::where('taker_user_id', $userId)->where('status', 'Taken')->paginate(3);
+        $deeds = Msdeeds::where('taker_user_id', $userId)->where('status', 'Taken')->paginate(5);
 
         $datas = [
             'deeds' => $deeds
@@ -89,7 +104,7 @@ class MsDeedsController extends Controller
     {
         $userId = Auth::user()->id;
         
-        $deeds = Msdeeds::where('taker_user_id', $userId)->where('status', 'Completed')->paginate(3);
+        $deeds = Msdeeds::where('taker_user_id', $userId)->where('status', 'Completed')->paginate(5);
 
         $datas = [
             'deeds' => $deeds
@@ -126,7 +141,7 @@ class MsDeedsController extends Controller
         ]);
 
         // Redirect back with a success message
-        return redirect()->route('mydeed.index')->with('success', 'Deed added successfully.');
+        return redirect()->route('ownerDeeds')->with('success', 'Deed added successfully.');
     }
 
     public function takeDeed(Request $request)
@@ -179,7 +194,7 @@ class MsDeedsController extends Controller
         $userId = session('userId');  // Or use auth()->id() if you are using Laravel's authentication system
 
         // Get deeds associated with the logged-in user
-        $deeds = Msdeeds::where('taker_user_id', $userId)->orderBy('status', 'desc')->paginate(3);
+        $deeds = Msdeeds::where('taker_user_id', $userId)->orderBy('status', 'desc')->paginate(5);
 
         // Prepare the data to pass to the view
         $datas = [
