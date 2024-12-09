@@ -78,7 +78,8 @@ class ProfileController extends Controller
         //     $user->save();
         // }
 
-        $user->photo = 'testing ndann!!';
+        $path = $request->file('photo')->store('photos', 'public');
+        $user->photo = $path;
         $user->save();
         return Redirect::route('profile.edit')->with('status', 'photo-updated');
     }
