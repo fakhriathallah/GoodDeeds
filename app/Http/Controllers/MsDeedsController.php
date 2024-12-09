@@ -112,11 +112,8 @@ class MsDeedsController extends Controller
         ]);
 
         // Retrieve the logged-in user's ID from session
-        $ownerUserId = session('userId'); // Assuming userId is stored in session during login
+        $ownerUserId = Auth::user()->id; // Assuming userId is stored in session during login
 
-        if (!$ownerUserId) {
-            return redirect()->route('signin.index')->with('error', 'You must be logged in to add a deed.');
-        }
 
         // Create a new deed entry in the database
         MsDeeds::create([
@@ -260,5 +257,25 @@ class MsDeedsController extends Controller
             'success' => true,
             'message' => 'Job deleted successfully.',
         ]);
+    }
+
+    public function updateDetail(MsDeeds $deed){
+        return view('UpdateDeeds', ['deed'=>$deed]);
+    }
+
+    public function updateDeed(Request $request, MsDeeds $deed){
+        $validated = $request->validate([
+            'title' => 'required|max:100',
+            'description' => 'required',
+            'prize' => 'required|numeric|min:0',
+        ]);
+        // $deed = MsDeeds::find($id);
+        $deed->title = $request->title;
+        $deed->description = $request->description;
+        $deed->prize = $request->prize;
+
+        $deed->save();
+
+        return back()->with('success',true);
     }
 }

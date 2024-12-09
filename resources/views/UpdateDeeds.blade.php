@@ -6,11 +6,12 @@
     <div class="container-fluid py-4">
         <div class="card">
             <div class="card-header pb-0 px-3">
-                <h6 class="mb-0">{{ __('Add New Deed') }}</h6>
+                <h6 class="mb-0">{{ __('Update Deed') }}</h6>
             </div>
             <div class="card-body pt-4 p-3">
-                <form action="{{route('ownerStoreDeeds')}}" method="POST" role="form text-left">
+                <form action="{{route('deed.updateDeed', ['deed'=>$deed->id])}}" method="POST" role="form text-left">
                     @csrf
+                    @method('PUT')
                     @if($errors->any())
                         <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
                             <span class="alert-text text-white">
@@ -62,7 +63,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Add New Deed' }}</button>
+                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Update Deed' }}</button>
                     </div>
                 </form>
 
