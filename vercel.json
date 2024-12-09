@@ -13,7 +13,7 @@
     "outputDirectory": "public",
     "env": {
         "APP_ENV": "local",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://good-deeds-alpha.vercel.app",
         "APP_KEY": "base64:iQ5Q4eK9unt9ekqAH6hLOXUPDXzVRolhb1o/mLmgHzQ=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
@@ -23,7 +23,7 @@
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "VIEW_COMPILED_PATH": "/tmp",
         "CACHE_DRIVER": "array",
-        "LOG_CHANNEL": "stderr",
+        "LOG_CHANNEL": "stack",
         "SESSION_DRIVER": "cookie",
         "DB_CONNECTION": "mysql",
         "DB_HOST": "j9idh.h.filess.io",
