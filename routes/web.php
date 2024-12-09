@@ -28,8 +28,11 @@ Route::middleware(['auth', 'verified'])->get('/dashboard', [DashboardController:
 Route::prefix('owner')->group(function(){
     Route::get('/dashboard', [MsDeedsController::class, 'ownerDashboard'])->name('ownerDashboardShow');
 
+    Route::get('/mydeeds', [MsDeedsController::class,'ownerDeeds'])->name('ownerDeeds');
     Route::get('/adddeeds', [MsDeedsController::class,'addDeed'])->name('ownerAddDeeds'); // owner
     Route::post('/adddeeds', [MsDeedsController::class, 'storeDeed'])->name('ownerStoreDeeds');
+
+
 });
 
 Route::prefix('taker')->group(function(){
@@ -54,4 +57,6 @@ Route::post('/cancel-deed/{id}', [MsDeedsController::class, 'cancelDeed'])->name
 Route::post('/complete-deed/{id}', [MsDeedsController::class, 'completeDeed'])->name('deed.complete');
 Route::delete('/deeds/{deed}', [MsDeedsController::class, 'deleteDeed'])->name('deed.delete'); // owner
 
-
+//Route buat upload sana hapus foto
+Route::put('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.update.photo');
+Route::delete('/profile/photo', [ProfileController::class, 'deletePhoto'])->name('profile.delete.photo');

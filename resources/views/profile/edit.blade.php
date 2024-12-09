@@ -9,11 +9,12 @@
     </div>
     <div class="container-fluid py-4">
         <div class="card card-body blur shadow-blur mx-4 mt-n7 overflow-hidden">
-            <div class="row gx-4">
-                <div class="col-auto">
-                    <div class="avatar avatar-xl position-relative">
+            <div class="flex row gx-4">
+                <div class="col-auto flex flex-col items-center">
+                    {{-- <div class="avatar avatar-xl position-relative">
                     <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-                    </div>
+                    </div> --}}
+                    @include('profile.partials.update-profile-photo-form')
                 </div>
                 <div class="col-auto my-auto">
                     <div class="h-100">
@@ -52,3 +53,5 @@
     </div>
 </div>
 @endsection
+
+
