@@ -237,26 +237,42 @@ class MsDeedsController extends Controller
         return response()->json(['success' => 'Deed successfully taken.']);
     }
 
-    public function deleteDeed($id)
-    {
-        // Find the deed by ID
-        $deed = MsDeeds::find($id);
+    // public function deleteDeed($id)
+    // {
+    //     // Find the deed by ID
+    //     $deed = MsDeeds::find($id);
 
-        // Check if the deed exists and if the logged-in user owns it
-        if (!$deed || $deed->owner_user_id != session('userId')) {
-            return response()->json([
-                'success' => false,
-                'message' => 'You are not authorized to delete this job.',
-            ], 403);
-        }
+    //     // Check if the deed exists and if the logged-in user owns it
+    //     if (!$deed || $deed->owner_user_id != session('userId')) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'You are not authorized to delete this job.',
+    //         ], 403);
+    //     }
 
-        // Delete the deed
+    //     // Delete the deed
+    //     $deed->delete();
+
+    //     return response()->json([
+    //         'success' => true,
+    //         'message' => 'Job deleted successfully.',
+    //     ]);
+    // }
+
+    public function deleteDeed(MsDeeds $deed){
+        // $student->delete();
+
+        // if (!$deed || $deed->owner_user_id != session('userId')) {
+        //             return response()->json([
+        //                 'success' => false,
+        //                 'message' => 'You are not authorized to delete this job.',
+        //             ], 403);
+        //         }
+
+        // $userId = Auth::user()->id;
         $deed->delete();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Job deleted successfully.',
-        ]);
+        return redirect()->route('ownerDashboardShow')->with('success',"Deed has been deleted!");
     }
 
     public function updateDetail(MsDeeds $deed){
