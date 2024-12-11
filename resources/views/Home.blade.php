@@ -1,5 +1,15 @@
 @extends('template')
 @section('content')
+@session('updateSuccess')
+    <div class="alert alert-success">
+        Data has been updated!
+    </div>
+@endsession
+@session('deleteSuccess')
+    <div class="alert alert-success">
+        Data has been deleted!
+    </div>
+@endsession
 <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
     <div class="container-fluid py-4">
       <div class="row">
