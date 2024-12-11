@@ -27,7 +27,7 @@
                     @endphp
                     @foreach($deeds as $deed)
                       @php
-                        $totalPrizes += $deed->prizes;
+                        $totalPrizes += $deed->prize;
                       @endphp
                     <a href="">    
                     <tr>

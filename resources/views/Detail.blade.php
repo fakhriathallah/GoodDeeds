@@ -51,7 +51,7 @@
         </div>
       </div>
     <div class="deeds-detail">
-        <p>Location: </p>
+        <p>Description: </p>
         <p>{{ $deed->description }}</p>
         <p>Reward: {{ $deed->prize }}</p>
         @if (session('userId') == $deed->owner_user_id && $deed->taker_user_id != 0)
@@ -59,7 +59,7 @@
         @endif
     </div>
 
-    <p>Halo {{Auth::user()->id}}</p>
+    {{-- <p>Halo {{Auth::user()->id}}</p> --}}
     </div>
 </div>
 <script>

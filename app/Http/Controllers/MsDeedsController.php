@@ -287,7 +287,7 @@ class MsDeedsController extends Controller
         // $userId = Auth::user()->id;
         $deed->delete();
 
-        return redirect()->route('ownerDashboardShow')->with('success',"Deed has been deleted!");
+        return redirect()->route('ownerDashboardShow')->with('deleteSuccess',"Deed has been deleted!");
     }
 
     public function updateDetail(MsDeeds $deed){
@@ -307,6 +307,6 @@ class MsDeedsController extends Controller
 
         $deed->save();
 
-        return back()->with('success',true);
+        return redirect()->route('ownerDashboardShow')->with('updateSuccess',true);
     }
 }

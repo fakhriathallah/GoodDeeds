@@ -4,7 +4,7 @@
             <div class="text-center text-sm text-muted text-lg-start">
                 © <script>
                     document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart"></i> by
+                </script>, made by
                 Group 4
             </div>
         </div>

@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label for="title" class="form-control-label">{{ __('Title') }}</label>
                                 <div class="@error('title')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="text" placeholder="Title" id="title" name="title">
+                                    <input class="form-control" type="text" placeholder="Title" id="title" name="title" value="{{old('title',$deed->title)}}">
                                         @error('title')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
@@ -48,7 +48,7 @@
                             <div class="form-group">
                                 <label for="prize" class="form-control-label">{{ __('Prize') }}</label>
                                 <div class="@error('title')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="number" placeholder="Prize" id="prize" name="prize">
+                                    <input class="form-control" type="number" placeholder="Prize" id="prize" name="prize" value="{{old('prize',$deed->prize)}}">
                                         @error('prize')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <label for="description">{{ 'Description' }}</label>
                         <div class="@error('description')border border-danger rounded-3 @enderror">
-                            <textarea class="form-control" id="description" rows="3" placeholder="Description" name="description"></textarea>
+                            <textarea class="form-control" id="description" rows="3" placeholder="Description" name="description">{{old('description',$deed->description)}}</textarea>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
