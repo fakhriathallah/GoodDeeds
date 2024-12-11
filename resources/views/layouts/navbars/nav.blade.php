@@ -3,10 +3,13 @@
     <div class="container-fluid py-1 px-3">
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar"> 
             <div class="ms-md-3 pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-                <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" placeholder="Type here...">
-            </div>
+                <form action="{{route('searchDeeds')}}" method="GET" class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-text text-body" ><i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" name="query" value="{{ request('query') }}" class="form-control" placeholder="{{old('query')}}">
+                    </div>
+                </form>
             </div>
             <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center gap-4">

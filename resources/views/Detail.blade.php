@@ -6,45 +6,48 @@
             <span class="mask bg-gradient-primary opacity-6"></span>
         </div>
         <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
-        <div class="row gx-4">
-          <div class="col-auto my-auto">
-            <div class="h-200">
-                <h1>{{ $deed->title }}</h1>
-              <p class="mb-0 font-weight-bold text-sm">
-              Commissioned by : {{ $deed->owner->name }}
-              </p>
+            <div class="row gx-4">
+                <div class="col-auto my-auto">
+                    <div class="h-200">
+                        <h1>{{ $deed->title }}</h1>
+                    <p class="mb-0 font-weight-bold text-sm">
+                    Commissioned by : {{ $deed->owner->name }}
+                    </p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="row gx-4">
-          <div class="col-auto mt-8 mb-auto">
-            @if (Auth::user()->id != $deed->owner_user_id)
-                @if(Auth::user()->type == 2)
-                    @if ($deed->taker_user_id == 0)
-                        <form action="{{ route('deed.take', ['id'=>$deed->id]) }}" method="POST">
-                            @csrf
+            <div class="row gx-4">
+                <div class="col-auto mt-8 mb-auto">
+                    @if (Auth::user()->id != $deed->owner_user_id)
+                        @if(Auth::user()->type == 2)
+                            @if ($deed->taker_user_id == 0)
+                                <form action="{{ route('deed.take', ['id'=>$deed->id]) }}" method="POST">
+                                    @csrf
 
-                            <input type="hidden" name="deed_id" value="{{ $deed->id }}">
+                                    <input type="hidden" name="deed_id" value="{{ $deed->id }}">
 
-                            <button type="submit" class="btn btn-primary">Take Job</button>
-                        </form>
+                                    <button type="submit" class="btn btn-primary">Take Job</button>
+                                </form>
+                            @else
+                                <p id="job-status" style="font-weight: bold; color: green;">
+                                    This deed has already been taken.
+                                </p>
+                        @endif
+                        @elseif(Auth::user()->type == 1)
+                            <button type="submit" class="btn btn-primary">You Login As Owner</button>
+                        @endif
                     @else
-                        <p id="job-status" style="font-weight: bold; color: green;">
-                            This deed has already been taken.
-                        </p>
-                @endif
-                @elseif(Auth::user()->type == 1)
-                    <button type="submit" class="btn btn-primary">You Login As Owner</button>
-                @endif
-            @else
-                @if ($deed->taker_user_id == 0)
-                    <button id="delete-job-btn" onclick="deleteJob({{ $deed->id }})">
-                        DELETE JOB
-                    </button>
-                @endif
-            @endif
-          </div>
-        </div>
+                        @if (Auth::user()->id == $deed->owner_user_id && $deed->taker_user_id == 0)
+                            <a type="button" class="btn bg-gradient-warning" href="{{ route('deed.updateDetail', ['deed'=>$deed->id]) }}">UPDATE JOB</a>
+                            <form action="{{ route('deed.delete', ['deed'=>$deed->id]) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="delete" class="btn bg-gradient-danger">
+                            </form>
+                        @endif
+                    @endif
+                </div>
+            </div>
       </div>
     <div class="deeds-detail">
         <p>Location: </p>

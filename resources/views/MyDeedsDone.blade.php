@@ -27,10 +27,9 @@
                     @endphp
                     @foreach($deeds as $deed)
                       @php
-                        $totalPrizes += $deed->prizes;
-                      @endphp
-                    <a href="">    
-                    <tr>
+                        $totalPrizes = $totalPrizes + $deed->prize;
+                      @endphp  
+                      <tr>
                         <td>
                             <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
@@ -52,8 +51,7 @@
                         </td>
                         <td class="align-middle">
                         </td>    
-                        </tr>
-                    </a>
+                      </tr>
                     @endforeach
                     <tr>
                       <td>
