@@ -32,6 +32,7 @@ Route::prefix('owner')->group(function(){
     Route::get('/adddeeds', [MsDeedsController::class,'addDeed'])->name('ownerAddDeeds'); // owner
     Route::post('/adddeeds', [MsDeedsController::class, 'storeDeed'])->name('ownerStoreDeeds');
     
+    Route::get('/done', [MsDeedsController::class,'ownerDoneDeeds'])->name('ownerDoneDeeds');
 });
 
 Route::prefix('taker')->group(function(){

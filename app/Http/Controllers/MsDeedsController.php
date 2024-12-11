@@ -126,6 +126,19 @@ class MsDeedsController extends Controller
         return view('MyDeedsDone', $datas);
     }
 
+    public function ownerDoneDeeds()
+    {
+        $userId = Auth::user()->id;
+        
+        $deeds = Msdeeds::where('owner_user_id', $userId)->where('status', 'Completed')->paginate(10);
+
+        $datas = [
+            'deeds' => $deeds
+        ];
+
+        return view('MyDeedsDone', $datas);
+    }
+
     public function addDeed(){
         return view('Adddeeds');
     }
